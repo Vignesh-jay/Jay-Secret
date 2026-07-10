@@ -62,43 +62,52 @@ async function createSecret(data) {
 
 function getSecret(id) {
   return new Promise((resolve, reject) => {
-    db.get(
-      "SELECT * FROM secrets WHERE id=?",
+    db.get("SELECT * FROM secrets WHERE id=?", [id], (err, row) => {
+      if (err) return reject(err);
 
-      [id],
+      if (!row) return reject(new Error("Secret not found."));
 
-      (err, row) => {
-        if (err) {
-          reject(err);
+      if (row.viewedAt)
+        return reject(new Error("This secret has already been viewed."));
 
-          return;
-        }
+      if (Date.now() > row.expiresAt)
+        return reject(new Error("This secret has expired."));
 
-        if (!row) {
-          reject(new Error("Secret not found."));
+      resolve({
+        title: row.title,
+        expiresAt: row.expiresAt,
+      });
+    });
+  });
+}
 
-          return;
-        }
+async function revealSecret(id) {
+  return new Promise((resolve, reject) => {
+    db.get("SELECT * FROM secrets WHERE id=?", [id], (err, row) => {
+      if (err) return reject(err);
 
-        row.secret = decrypt(row.secret);
+      if (!row) return reject(new Error("Secret not found."));
 
-        if (row.viewedAt) {
-          reject(new Error("Secret already viewed."));
+      if (row.viewedAt)
+        return reject(new Error("This secret has already been viewed."));
 
-          return;
-        }
+      if (Date.now() > row.expiresAt)
+        return reject(new Error("This secret has expired."));
 
-        db.run(
-          "UPDATE secrets SET viewedAt=? WHERE id=?",
+      const decrypted = decrypt(row.secret);
 
-          [Date.now(), id],
+      db.run(
+        "UPDATE secrets SET viewedAt=? WHERE id=?",
+        [Date.now(), id],
+        () => {
+          resolve({
+            title: row.title,
 
-          () => {
-            resolve(row);
-          },
-        );
-      },
-    );
+            secret: decrypted,
+          });
+        },
+      );
+    });
   });
 }
 
@@ -108,4 +117,6 @@ module.exports = {
   createSecret,
 
   getSecret,
+
+  revealSecret,
 };

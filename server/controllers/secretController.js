@@ -34,7 +34,24 @@ async function get(req, res) {
   }
 }
 
+async function reveal(req, res) {
+  try {
+    const secret = await secretService.revealSecret(req.params.id);
+
+    res.json({
+      success: true,
+      secret,
+    });
+  } catch (err) {
+    res.status(404).json({
+      success: false,
+      message: err.message,
+    });
+  }
+}
+
 module.exports = {
   create,
   get,
+  reveal,
 };

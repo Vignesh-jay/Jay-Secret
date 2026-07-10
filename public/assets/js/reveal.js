@@ -19,34 +19,52 @@ async function loadSecret() {
 function showSecret(secret) {
   document.getElementById("app").innerHTML = `
 
-<h2>${secret.title || "Shared Secret"}</h2>
+        <h2>${secret.title || "Shared Secret"}</h2>
 
-<p>
+        <p>
+            This secret can only be viewed once.
+        </p>
 
-This secret can only be viewed once.
+        <button id="revealBtn">
+            Reveal Secret
+        </button>
 
-</p>
+    `;
 
-<input
-id="secretValue"
-type="password"
-value="${secret.secret}"
-readonly
->
+  document.getElementById("revealBtn").addEventListener("click", revealSecret);
+}
 
-<button id="revealBtn">
-
-Reveal Secret
-
-</button>
-
-`;
-
-  document.getElementById("revealBtn").addEventListener("click", () => {
-    const input = document.getElementById("secretValue");
-
-    input.type = "text";
+async function revealSecret() {
+  const response = await fetch(`/api/secrets/${id}/reveal`, {
+    method: "POST",
   });
+
+  const data = await response.json();
+
+  if (!data.success) {
+    showError(data.message);
+
+    return;
+  }
+
+  document.getElementById("app").innerHTML = `
+
+        <h2>${data.secret.title}</h2>
+
+        <input
+            value="${data.secret.secret}"
+            readonly
+        >
+
+        <button onclick="navigator.clipboard.writeText('${data.secret.secret}')">
+            Copy Secret
+        </button>
+
+        <p style="margin-top:20px;color:#2F855A;">
+            This secret has now been destroyed.
+        </p>
+
+    `;
 }
 
 function showError(message) {

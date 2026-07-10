@@ -4,8 +4,12 @@ const router = express.Router();
 
 const controller = require("../controllers/secretController");
 
-router.post("/", controller.create);
+const validateSecret = require("../middleware/validateSecret");
+
+router.post("/", validateSecret, controller.create);
 
 router.get("/:id", controller.get);
+
+router.post("/:id/reveal", controller.reveal);
 
 module.exports = router;
