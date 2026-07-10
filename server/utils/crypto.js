@@ -11,7 +11,11 @@ const ivLength = 16;
 function encrypt(text) {
   const iv = crypto.randomBytes(ivLength);
 
-  const cipher = crypto.createCipheriv(algorithm, Buffer.from(secretKey), iv);
+  const cipher = crypto.createCipheriv(
+    algorithm,
+    Buffer.from(secretKey, "hex"),
+    iv,
+  );
 
   let encrypted = cipher.update(text);
 
@@ -29,7 +33,7 @@ function decrypt(text) {
 
   const decipher = crypto.createDecipheriv(
     algorithm,
-    Buffer.from(secretKey),
+    Buffer.from(secretKey, "hex"),
     iv,
   );
 

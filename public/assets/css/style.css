@@ -560,11 +560,16 @@ footer {
 }
 
 .timer-wrapper {
-  width: min(220px, 70vw);
+  position: relative;
 
+  width: min(220px, 70vw);
   aspect-ratio: 1;
 
   margin: 20px auto 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .timer-ring {
