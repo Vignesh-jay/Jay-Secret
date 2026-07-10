@@ -15,7 +15,9 @@ function validateSecret(req, res, next) {
     });
   }
 
-  const validExpiries = ["1h", "24h", "7d"];
+  const EXPIRY_MAP = require("../config/expiry");
+
+  const validExpiries = Object.keys(EXPIRY_MAP);
 
   if (!validExpiries.includes(expiry)) {
     return res.status(400).json({

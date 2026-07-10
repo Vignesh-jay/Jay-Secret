@@ -22,11 +22,11 @@ const MAX_LEAVES = 8;
 function createLeaf() {
   const leaf = document.createElement("img");
 
+  const LEAF_PATH = "/assets/images/leaves/";
+
   const leaves = ["oak.svg", "maple.svg", "birch.svg", "elm.svg", "grass.svg"];
 
-  leaf.src = `assets/images/leaves/${
-    leaves[Math.floor(Math.random() * leaves.length)]
-  }`;
+  leaf.src = LEAF_PATH + leaves[Math.floor(Math.random() * leaves.length)];
 
   leaf.className = "leaf";
 

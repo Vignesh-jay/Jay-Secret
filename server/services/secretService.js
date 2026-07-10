@@ -14,24 +14,10 @@ async function createSecret(data) {
 
     const createdAt = Date.now();
 
-    let expiresAt = createdAt;
+    const EXPIRY_MAP = require("../config/expiry");
 
-    switch (data.expiry) {
-      case "1h":
-        expiresAt += 60 * 60 * 1000;
-        break;
-
-      case "24h":
-        expiresAt += 24 * 60 * 60 * 1000;
-        break;
-
-      case "7d":
-        expiresAt += 7 * 24 * 60 * 60 * 1000;
-        break;
-
-      default:
-        expiresAt += 60 * 60 * 1000;
-    }
+    const expiresAt =
+      createdAt + (EXPIRY_MAP[data.expiry] || EXPIRY_MAP["60m"]);
 
     db.run(
       `
@@ -102,8 +88,8 @@ async function revealSecret(id) {
         () => {
           resolve({
             title: row.title,
-
             secret: decrypted,
+            expiresAt: row.expiresAt,
           });
         },
       );
