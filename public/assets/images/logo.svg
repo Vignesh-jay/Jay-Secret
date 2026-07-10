@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+
+  <defs>
+    <linearGradient id="lockGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#44C776"/>
+      <stop offset="100%" stop-color="#2F855A"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Lock Shackle -->
+  <path
+    d="M40 50
+       V34
+       C40 20 51 10 64 10
+       C77 10 88 20 88 34
+       V50"
+    fill="none"
+    stroke="url(#lockGradient)"
+    stroke-width="10"
+    stroke-linecap="round"
+    stroke-linejoin="round"/>
+
+  <!-- Lock Body -->
+  <rect
+    x="24"
+    y="46"
+    width="80"
+    height="72"
+    rx="18"
+    fill="url(#lockGradient)"/>
+
+  <!-- Inner Border -->
+  <rect
+    x="30"
+    y="52"
+    width="68"
+    height="60"
+    rx="14"
+    fill="none"
+    stroke="rgba(255,255,255,.45)"
+    stroke-width="2"/>
+
+  <!-- Lambda -->
+  <path
+    d="M64 64
+       L81 100
+       H72
+       L64 81
+       L56 100
+       H47
+       Z"
+    fill="white"/>
+
+</svg>
