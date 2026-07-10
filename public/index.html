@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>JΛY Secret</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="assets/css/variables.css" />
+
+    <link rel="stylesheet" href="assets/css/animations.css" />
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+
+  <body>
+    <div class="background">
+      <div class="blob blob1"></div>
+      <div class="blob blob2"></div>
+      <div class="blob blob3"></div>
+    </div>
+
+    <main>
+      <section class="glass-card">
+        <div class="logo">
+          <i data-lucide="shield-check"></i>
+        </div>
+
+        <h1>JΛY Secret</h1>
+
+        <p>
+          Share passwords and sensitive information securely with a
+          self-destructing link.
+        </p>
+
+        <form id="secretForm">
+          <div class="form-group">
+            <label>Title</label>
+
+            <input type="text" id="title" placeholder="Office VPN" />
+          </div>
+
+          <div class="form-group">
+            <label>Secret</label>
+
+            <textarea
+              id="secret"
+              rows="5"
+              placeholder="Enter your password or secret..."
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label>Expires In</label>
+
+            <select id="expiry">
+              <option value="1h">1 Hour</option>
+
+              <option value="24h">24 Hours</option>
+
+              <option value="7d">7 Days</option>
+            </select>
+          </div>
+
+          <button type="submit">Generate Secure Link</button>
+        </form>
+      </section>
+      <footer>Built with ❤️ by Vignesh Jayaraman</footer>
+    </main>
+    <script src="assets/js/app.js"></script>
+  </body>
+</html>

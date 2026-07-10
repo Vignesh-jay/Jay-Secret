@@ -1,0 +1,21 @@
+:root {
+  --bg: #f5f7f4;
+
+  --glass: rgba(255, 255, 255, 0.35);
+
+  --border: rgba(255, 255, 255, 0.55);
+
+  --text: #222;
+
+  --text-light: #666;
+
+  --primary: #2f855a;
+
+  --primary-hover: #276749;
+
+  --shadow: 0 15px 45px rgba(0, 0, 0, 0.08);
+
+  --radius: 28px;
+
+  --blur: 22px;
+}
