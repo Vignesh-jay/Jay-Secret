@@ -5,7 +5,11 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Reveal Secret • JΛY Secret</title>
+    <title>JΛY Secret • Secure One-Time Secret Sharing</title>
+    <meta
+      name="description"
+      content="Securely share passwords, API keys and confidential information using self-destructing one-time links."
+    />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
 
@@ -54,6 +58,33 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <meta name="apple-mobile-web-app-title" content="JΛY Secret" />
+
+    <meta property="og:title" content="JΛY Secret" />
+
+    <meta
+      property="og:description"
+      content="Share Securely. Reveal Once. Gone Forever."
+    />
+
+    <meta
+      property="og:image"
+      content="https://secret.vignesh-jay.xyz/assets/images/preview.png"
+    />
+
+    <meta property="og:type" content="website" />
+
+    <meta property="og:url" content="https://secret.vignesh-jay.xyz" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="JΛY Secret" />
+    <meta
+      name="twitter:description"
+      content="Share Securely. Reveal Once. Gone Forever."
+    />
+    <meta
+      name="twitter:image"
+      content="https://secret.vignesh-jay.xyz/assets/images/preview.png"
+    />
   </head>
 
   <body>
@@ -61,7 +92,21 @@
     <div id="leaf-container"></div>
 
     <main>
-      <section class="glass-card" id="app">Loading...</section>
+      <section class="glass-card">
+        <div id="app">
+          <div class="loader">
+            <div class="loader-ring"></div>
+
+            <img
+              src="/assets/images/logo.svg"
+              class="loader-logo"
+              alt="JΛY Secret"
+            />
+
+            <p>Preparing your secret...</p>
+          </div>
+        </div>
+      </section>
     </main>
 
     <script src="/assets/js/leaves.js"></script>

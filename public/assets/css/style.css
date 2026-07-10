@@ -785,3 +785,55 @@ footer {
     transform: translateX(-50%) translateY(0);
   }
 }
+
+.loader {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  min-height: 420px;
+}
+
+.loader-logo {
+  width: 72px;
+
+  margin-bottom: 18px;
+}
+
+.loader-ring {
+  width: 90px;
+
+  height: 90px;
+
+  border-radius: 50%;
+
+  border: 3px solid rgba(255, 255, 255, 0.2);
+
+  border-top-color: #4c9a57;
+
+  animation: spin 1s linear infinite;
+
+  margin-bottom: 30px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.glass-card {
+  transition:
+    opacity 0.35s,
+    transform 0.35s;
+}
+
+.glass-card.fade {
+  opacity: 0;
+
+  transform: scale(0.97);
+}
