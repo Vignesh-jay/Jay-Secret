@@ -1,13 +1,21 @@
-@keyframes float {
+@keyframes leafFall {
   0% {
-    transform: translateY(0px);
+    transform: translate3d(0, -100px, 0) rotate(0deg);
+  }
+
+  25% {
+    transform: translate3d(-25px, 25vh, 0) rotate(90deg);
   }
 
   50% {
-    transform: translateY(-40px);
+    transform: translate3d(20px, 50vh, 0) rotate(180deg);
+  }
+
+  75% {
+    transform: translate3d(-30px, 75vh, 0) rotate(260deg);
   }
 
   100% {
-    transform: translateY(0px);
+    transform: translate3d(15px, 110vh, 0) rotate(360deg);
   }
 }

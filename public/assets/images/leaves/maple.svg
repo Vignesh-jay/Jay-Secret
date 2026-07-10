@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+
+<defs>
+<linearGradient id="maple" x1="0%" y1="0%" x2="100%" y2="100%">
+<stop offset="0%" stop-color="#9ED46C"/>
+<stop offset="100%" stop-color="#5E9649"/>
+</linearGradient>
+</defs>
+
+<path
+fill="url(#maple)"
+d="
+M64 10
+L74 32
+L98 24
+L88 50
+L112 64
+L86 70
+L90 100
+L64 86
+L38 100
+L42 70
+L16 64
+L40 50
+L30 24
+L54 32
+Z"/>
+
+<path
+d="M64 18L64 102"
+stroke="#49753A"
+stroke-width="3"
+stroke-linecap="round"/>
+
+<path
+d="M60 40L42 28M68 40L88 30M60 64L36 60M68 64L92 60"
+stroke="#6AAE58"
+stroke-width="2"
+fill="none"/>
+
+<path
+d="M64 102L60 122"
+stroke="#6B4A2B"
+stroke-width="3"
+stroke-linecap="round"/>
+
+</svg>

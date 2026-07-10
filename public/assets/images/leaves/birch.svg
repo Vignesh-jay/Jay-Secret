@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+
+<defs>
+<linearGradient id="birch" x1="0%" y1="0%" x2="100%" y2="100%">
+<stop offset="0%" stop-color="#B7E27D"/>
+<stop offset="100%" stop-color="#6EAF55"/>
+</linearGradient>
+</defs>
+
+<path
+fill="url(#birch)"
+d="
+M64 8
+C88 20 98 48 84 82
+C74 104 54 116 40 98
+C24 78 28 40 64 8Z"/>
+
+<path
+d="M64 14L48 102"
+stroke="#4A7A3A"
+stroke-width="3"
+stroke-linecap="round"/>
+
+<path
+d="M60 38L78 28M56 58L76 54M52 74L70 82"
+stroke="#6AAE58"
+stroke-width="2"
+fill="none"/>
+
+<path
+d="M48 102L42 120"
+stroke="#6B4A2B"
+stroke-width="3"
+stroke-linecap="round"/>
+
+</svg>

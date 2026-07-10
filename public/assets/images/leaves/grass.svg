@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 128">
+
+<defs>
+<linearGradient id="grass" x1="0%" y1="100%" x2="0%" y2="0%">
+<stop offset="0%" stop-color="#4C8A43"/>
+<stop offset="100%" stop-color="#B8E67F"/>
+</linearGradient>
+</defs>
+
+<path
+fill="url(#grass)"
+d="
+M34 126
+C32 90
+28 70
+18 44
+C10 24
+18 8
+34 2
+C42 18
+40 40
+38 70
+36 100
+38 126
+Z"/>
+
+<path
+d="M34 10L34 122"
+stroke="#4A7C3A"
+stroke-width="1.5"
+stroke-linecap="round"/>
+
+</svg>

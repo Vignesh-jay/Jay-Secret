@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+
+<defs>
+<linearGradient id="elm" x1="0%" y1="0%" x2="100%" y2="100%">
+<stop offset="0%" stop-color="#A9D56D"/>
+<stop offset="100%" stop-color="#588F47"/>
+</linearGradient>
+</defs>
+
+<path
+fill="url(#elm)"
+d="
+M64 10
+C94 16 108 46 98 74
+C88 104 56 118 34 98
+C16 80 20 42 64 10Z"/>
+
+<path
+d="M64 16L52 110"
+stroke="#49793A"
+stroke-width="3"
+stroke-linecap="round"/>
+
+<path
+d="M60 38L84 30M56 54L86 50M52 74L78 82"
+stroke="#6AAE58"
+stroke-width="2"
+fill="none"/>
+
+<path
+d="M52 110L48 126"
+stroke="#6B4A2B"
+stroke-width="3"
+stroke-linecap="round"/>
+
+</svg>

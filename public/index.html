@@ -29,56 +29,61 @@
   </script>
 
   <body>
-    <div class="background">
-      <div class="blob blob1"></div>
-      <div class="blob blob2"></div>
-      <div class="blob blob3"></div>
-    </div>
+    <div class="background"></div>
+    <div id="leaf-container"></div>
 
     <main>
       <section class="glass-card">
-        <div class="logo">
-          <img src="assets/images/logo.svg" alt="JΛY Secret" />
+        <div class="glass-light"></div>
+        <div class="glass-reflection"></div>
+        <div class="glass-edge"></div>
+        <div class="glass-noise"></div>
+
+        <div class="card-content">
+          <div class="logo">
+            <img src="assets/images/logo.svg" alt="JΛY Secret" />
+          </div>
+
+          <h1>JΛY Secret</h1>
+
+          <p>Share secrets securely with one-time links.</p>
+
+          <form id="secretForm">
+            <div class="form-group">
+              <label>Title</label>
+
+              <input type="text" id="title" placeholder="Office VPN" />
+            </div>
+
+            <div class="form-group">
+              <label>Secret</label>
+
+              <textarea
+                id="secret"
+                rows="5"
+                placeholder="Enter your password or secret..."
+              ></textarea>
+            </div>
+
+            <div class="form-group">
+              <label>Expires In</label>
+
+              <select id="expiry">
+                <option value="1h">1 Hour</option>
+
+                <option value="24h">24 Hours</option>
+
+                <option value="7d">7 Days</option>
+              </select>
+            </div>
+            <button type="submit">🔒 Generate Secure Link</button>
+          </form>
         </div>
-
-        <h1>JΛY Secret</h1>
-
-        <p>Share secrets securely with one-time links.</p>
-
-        <form id="secretForm">
-          <div class="form-group">
-            <label>Title</label>
-
-            <input type="text" id="title" placeholder="Office VPN" />
-          </div>
-
-          <div class="form-group">
-            <label>Secret</label>
-
-            <textarea
-              id="secret"
-              rows="5"
-              placeholder="Enter your password or secret..."
-            ></textarea>
-          </div>
-
-          <div class="form-group">
-            <label>Expires In</label>
-
-            <select id="expiry">
-              <option value="1h">1 Hour</option>
-
-              <option value="24h">24 Hours</option>
-
-              <option value="7d">7 Days</option>
-            </select>
-          </div>
-
-          <button type="submit">🔒 Generate Secure Link</button>
-        </form>
       </section>
       <footer>Built with ❤️ by Vignesh Jayaraman</footer>
     </main>
     <script src="assets/js/app.js"></script>
+    <script src="assets/js/leaves.js"></script>
+    <script src="assets/js/parallax.js"></script>
   </body>
 </html>

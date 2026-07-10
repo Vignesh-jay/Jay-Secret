@@ -19,17 +19,28 @@ async function loadSecret() {
 function showSecret(secret) {
   document.getElementById("app").innerHTML = `
 
+    <div class="reveal-container">
+
+        <img
+            src="/assets/images/logo.svg"
+            class="reveal-logo"
+            alt="JΛY Secret"
+        >
+
         <h2>${secret.title || "Shared Secret"}</h2>
 
-        <p>
+        <p class="reveal-text">
             This secret can only be viewed once.
+            After revealing it, it will be permanently destroyed.
         </p>
 
-        <button id="revealBtn">
-            Reveal Secret
+        <button id="revealBtn" class="primary-btn">
+            🔓 Reveal Secret
         </button>
 
-    `;
+    </div>
+
+  `;
 
   document.getElementById("revealBtn").addEventListener("click", revealSecret);
 }
@@ -43,54 +54,96 @@ async function revealSecret() {
 
   if (!data.success) {
     showError(data.message);
-
     return;
   }
 
   document.getElementById("app").innerHTML = `
 
-        <h2>${data.secret.title}</h2>
+    <div class="reveal-container">
 
-        <input
-            value="${data.secret.secret}"
-            readonly
+        <img
+            src="/assets/images/logo.svg"
+            class="reveal-logo"
+            alt="JΛY Secret"
         >
 
-        <button onclick="navigator.clipboard.writeText('${data.secret.secret}')">
-            Copy Secret
-        </button>
+        <h2>${data.secret.title}</h2>
 
-        <p style="margin-top:20px;color:#2F855A;">
-            This secret has now been destroyed.
+        <p class="reveal-text">
+            Your secret has been revealed.
+            Copy it now because it cannot be viewed again.
         </p>
 
-    `;
+        <div class="secret-box">
+
+            <input
+                id="secretValue"
+                value="${data.secret.secret}"
+                readonly
+            >
+
+        </div>
+
+        <button
+            id="copyBtn"
+            class="primary-btn"
+        >
+            📋 Copy Secret
+        </button>
+
+        <small class="destroyed">
+
+            This secret has now been permanently destroyed.
+
+        </small>
+
+    </div>
+
+  `;
+
+  document.getElementById("copyBtn").addEventListener("click", () => {
+    navigator.clipboard.writeText(data.secret.secret);
+
+    const btn = document.getElementById("copyBtn");
+
+    btn.innerHTML = "✅ Copied!";
+
+    setTimeout(() => {
+      btn.innerHTML = "📋 Copy Secret";
+    }, 2000);
+  });
 }
 
 function showError(message) {
   document.getElementById("app").innerHTML = `
 
-<h2>
+    <div class="reveal-container">
 
-Secret Unavailable
+        <img
+            src="/assets/images/logo.svg"
+            class="reveal-logo"
+            alt="JΛY Secret"
+        >
 
-</h2>
+        <h2>Secret Unavailable</h2>
 
-<p>
+        <p class="reveal-text">
 
-${message}
+            ${message}
 
-</p>
+        </p>
 
-<a href="/">
+        <a href="/">
 
-<button>
+            <button class="primary-btn">
 
-Create Secret
+                Create New Secret
 
-</button>
+            </button>
 
-</a>
+        </a>
 
-`;
+    </div>
+
+  `;
 }
