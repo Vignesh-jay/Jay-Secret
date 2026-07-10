@@ -560,16 +560,18 @@ footer {
 }
 
 .timer-wrapper {
-  position: relative;
+  width: min(220px, 70vw);
 
-  width: 220px;
+  aspect-ratio: 1;
 
-  height: 220px;
-
-  margin: 18px auto 34px;
+  margin: 20px auto 32px;
 }
 
 .timer-ring {
+  width: 100%;
+
+  height: 100%;
+
   position: absolute;
 
   inset: 0;
@@ -608,7 +610,7 @@ footer {
 
   justify-content: center;
 
-  font-size: 48px;
+  font-size: clamp(36px, 8vw, 58px);
 
   font-weight: 700;
 
@@ -643,4 +645,77 @@ footer {
   opacity: 0;
 
   transform: scale(0.9);
+}
+
+/* ==========================================
+   Tablet
+========================================== */
+
+@media (max-width: 1024px) {
+  .glass-card {
+    width: min(92vw, 680px);
+
+    padding: 44px;
+  }
+}
+
+/* ==========================================
+   Mobile
+========================================== */
+
+@media (max-width: 768px) {
+  body {
+    padding: 20px;
+  }
+
+  .glass-card {
+    width: 100%;
+
+    padding: 32px 24px;
+
+    border-radius: 28px;
+  }
+
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  input,
+  textarea,
+  select {
+    font-size: 16px;
+  }
+
+  button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .glass-card {
+    backdrop-filter: blur(12px) saturate(110%);
+    -webkit-backdrop-filter: blur(12px) saturate(110%);
+  }
+}
+
+/* ==========================================
+   Small Phones
+========================================== */
+
+@media (max-width: 480px) {
+  .glass-card {
+    padding: 24px 18px;
+  }
+
+  h1 {
+    font-size: 1.9rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
 }
