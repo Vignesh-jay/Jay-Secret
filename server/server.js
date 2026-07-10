@@ -22,6 +22,6 @@ app.get("/", (req, res) => {
 
 const config = require("./config/config");
 
-app.listen(config.port, () => {
-  console.log(`🚀 JΛY Secret running at http://localhost:${config.port}`);
+app.listen(config.port, "0.0.0.0", () => {
+  console.log(`🚀 JΛY Secret running on port ${config.port}`);
 });
